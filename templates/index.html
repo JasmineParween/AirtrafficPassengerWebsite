@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+</head>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="#">LinkdIn</a>
+            <a class="nav-item nav-link" href="#">Github</a>
+        </div>
+    </div>
+</nav>
+
+
+<body>
+    <div class="jumbotron ">
+        <h1 class="display-4">Hello, world!</h1>
+        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to
+            featured content or information.</p>
+        <hr class="my-4">
+        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+        <!-- <p class="lead">
+            <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+        </p> -->
+    </div>
+    <div class="container">
+        <form action="/" method="POST">
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="year">Year</label>
+                    <input type="text" class="form-control" id="year" name="year" placeholder="2005 onwards">
+                </div>
+                <div class="col-md-3">
+                    <label for="month">Month</label>
+                    <select class="form-control" id="month" name = "month">
+                        <option selected>Choose...</option>
+                        {% for month in raw_data['Month'] %}
+                            <option value={{month}}>{{raw_data['Month'][month]}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label for="geo_summary">GEO Type</label>
+                    <select class="form-control" id = "geo_summary" name = "geo_summary">
+                        <option selected>Choose...</option>
+                        {% for geo in raw_data['GEO Summary'] %}
+                            <option value={{geo}}>{{raw_data['GEO Summary'][geo]}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-md-3">
+                    <label for="geo_region">GEO Region</label>
+                    <select class="form-control" id = "geo_region"  name = "geo_region">
+                        <option selected>Choose...</option>
+                        {% for geo in raw_data['GEO Region'] %}
+                            <option value={{geo}}>{{raw_data['GEO Region'][geo]}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col">
+                    <label for="operating_airline">Operating Airline</label>
+                    <select class="form-control" id = "operating_airline" name = "operating_airline">
+                        <option selected>Choose...</option>
+                        {% for airline in raw_data['Operating Airline'] %}
+                            <option value={{airline}}>{{raw_data['Operating Airline'][airline]}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col">
+                    <label for="published_airline">Published Airline</label>
+                    <select class="form-control" id = "published_airline" name = "published_airline">
+                        <option selected>Choose...</option>
+                        {% for airline in raw_data['Published Airline'] %}
+                            <option value={{airline}}>{{raw_data['Published Airline'][airline]}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col">
+                    <label for="activity_type_code">Activity Type</label>
+                    <select class="form-control" id = "activity_type_code" name = "activity_type_code">
+                        <option selected>Choose...</option>
+                        {% for activity in raw_data['Activity Type Code'] %}
+                            <option value={{activity}}>{{raw_data['Activity Type Code'][activity]}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col">
+                    <label for="terminal">Terminal</label>
+                    <select class="form-control" id = "terminal" name = "terminal">
+                        <option selected>Choose...</option>
+                        {% for terminal in raw_data['Terminal'] %}
+                            <option value={{terminal}}>{{raw_data['Terminal'][terminal]}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col">
+                    <label for="boarding_area">Boarding Area</label>
+                    <select class="form-control" id = "boarding_area" name = "boarding_area">
+                        <option selected>Choose...</option>
+                        {% for area in raw_data['Boarding Area'] %}
+                            <option value={{area}}>{{raw_data['Boarding Area'][area]}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col">
+                    <label for="price_cat_code">Price Category</label>
+                    <select class="form-control" id = "price_cat_code" name = "price_cat_code">
+                        <option selected>Choose...</option>
+                        {% for price_cat in raw_data['Price Category Code'] %}
+                            <option value={{price_cat}}>{{raw_data['Price Category Code'][price_cat]}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+    
+            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+        </form>
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
